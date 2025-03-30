@@ -1,105 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <script>
+			//陳述式function在創造階段就會優先載入了, 跟a=1這種變數宣告不同
 
-  // var a;
-  var a = null;
-  console.log(a);
-
-
-
+			  // var a;
+			  var a = null;
+			  console.log(a);
 
 
 
 
 
 
+			//陳述式  可以在定義之前呼叫，因為具有**提升（Hoisting）**特性  函式提升，可以在宣告前呼叫。
+			function callName(){
+			  console.log('呼叫小明 1');
+			}
+			   //範例：
+			   callName(); // 呼叫小明 1
+			   function callName(){
+			     console.log('呼叫小明 1');
+			   }
+			   //上述程式碼能正常運行，因為函式已經在作用域中被提升。
+
+
+			//表達式 也稱為匿名函式，不具有提升特性  只有在執行到該行時，才會把函式賦值給變數。 無法在宣告前呼叫，變數提升但初始化不提升。
+			var callName = function(){
+			  console.log('呼叫小明 2');
+			}
+			   //範例：
+			   callName(); // TypeError: callName is not a function 因為變數提升，callName 變數在呼叫時是 undefined，所以會報錯。
+			   var callName = function(){
+			     console.log('呼叫小明 2');
+			   }
 
 
 
 
 
 
-    // var Ming; // 創造階段
-    // Ming = '小明'; // 執行
-    // console.log(Ming);
 
-    // // 創造階段
-    // function callName() {
-    //   console.log('呼叫小明');
-    // }
+			    // var Ming; // 創造階段
+			    // Ming = '小明'; // 執行
+			    // console.log(Ming);
 
-    // // 執行
-    // callName();
-    
-    // ===
-    // // 創造階段
-    // var callName;
+			    // // 創造階段
+			    // function callName() {
+			    //   console.log('呼叫小明');
+			    // }
 
-    // // 執行
-    // callName = function () {
-    //   console.log('呼叫小明');
-    // }
-    // callName();
-    
+			    // // 執行
+			    // callName();
 
-    // 函式優先
-    // 創造階段
-    // function callName() {
-    //   console.log('呼叫小明 1');
-    // }
-    // var callName;
+			    // ===
+			    // // 創造階段
+			    // var callName;
 
-    // // 執行
-    // callName = function () {
-    //   console.log('呼叫小明 2');
-    // }
-    // callName();
-    
-
-    // // 創造
-    // function callName() {
-    //   console.log(Ming);
-    // }
-    // var Ming
-    // // 執行
-    // callName();
-    // Ming = '小明';
+			    // // 執行
+			    // callName = function () {
+			    //   console.log('呼叫小明');
+			    // }
+			    // callName();
 
 
-    // // 創造
-    // function callName() {
-    //   console.log('小明');
-    // }
-    // function callName() {
-    //   console.log('杰倫');
-    // }
+			    // 函式優先
+			    // 創造階段
+			    // function callName() {
+			    //   console.log('呼叫小明 1');
+			    // }
+			    // var callName;
 
-    // // 執行
-    // callName(); // 第一次執行
-    // callName(); // 第二次執行
+			    // // 執行
+			    // callName = function () {
+			    //   console.log('呼叫小明 2');
+			    // }
+			    // callName();
 
-    // 考題：
-    // whosName()
-    // function whosName() {
-    //   if (myName) {
-    //     myName = '杰倫';
-    //   }
-    // }
-    // var myName = '小明';
-    // console.log(myName);
-    
-  </script>
-</head>
 
-<body>
+			    // // 創造
+			    // function callName() {
+			    //   console.log(Ming);
+			    // }
+			    // var Ming
+			    // // 執行
+			    // callName();
+			    // Ming = '小明';
 
-</body>
 
+			    // // 創造
+			    // function callName() {
+			    //   console.log('小明');
+			    // }
+			    // function callName() {
+			    //   console.log('杰倫');
+			    // }
+
+			    // // 執行
+			    // callName(); // 第一次執行
+			    // callName(); // 第二次執行
+
+			    // 考題：
+			    // whosName()
+			    // function whosName() {
+			    //   if (myName) {
+			    //     myName = '杰倫';
+			    //   }
+			    // }
+			    // var myName = '小明';
+			    // console.log(myName);
+		</script>
+	</head>
+
+	<body></body>
 </html>
